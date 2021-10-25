@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootswatch -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    <title>pro3</title>
+    <style>
+        .breadcrumb {
+        box-shadow: 1px 1px #d5d4d4;
+        background: #eeeded;
+        border: 1px solid #eeeded;
+        border-radius: 5px;
+        padding: 0 5px 0 10px !important;
+        font-size: 16px;
+        line-height:2em;
+        }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm">
+          </div>
+          <div class="col">
+            <h1>Paquetes Turisticos</h1>
+          </div>
+          <div class="col-sm">
+          </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm">
+          </div>
+          <div class="col-sm">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Paquete</li>
+                </ol>
+              </nav>
+          </div>
+            <div class="col-sm">
+          </div>
+        </div>
+    </div>
+    <div class="container">
+        <div clas="row">
+            <div class="card-deck">
+                <div class ="col-sm-6">
+                    <div class="card">
+                        <svg class="bd-placeholder-img card-img-top" width="200" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    </div>
+                    <div style="text-align: center;">
+                        <a href="/ver/3" class="btn btn-success">Anterior</a>
+                        <a href="/ver/1"class="btn btn-success">Hotel 1</a>
+                        <a href="/ver/2" class="btn btn-success">Siguiente</a>
+                    </div>
+                </div>
+                    <div class="col-md-5">
+                        <div class="card">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nombre Paquete</th>
+                                        <th scope="col">Pais Destino</th>
+                                        <th scope="col">Fecha Llegada</th>
+                                        <th scope="col">Fecha Salida</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        
+                                    <tr class="table-info">
+                                        <th scope="row"><%= data.Nombre_paquete%></th>
+                                        <td><%= data.Pais_destino%></td>
+                                        <td><%= data.Fecha_llegada%></td>
+                                        <td><%= data.Fecha_salida%></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            </div>
+        </div>    
+    </div>
+</body>
+</html>

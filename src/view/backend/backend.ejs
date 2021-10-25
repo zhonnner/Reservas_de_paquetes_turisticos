@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootswatch -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    <title>programacionweb</title>
+    <script>
+        function buscar() {
+          var x = document.getElementById("Rut");
+          var text = "/buscar/";
+          var final = text + x;
+          console.log(final);
+          window.open("/test2.ejs");
+        }
+        </script>
+</head>
+<body>
+    
+    <!-- SELECT * FROM PERSONAS -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-7">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td class="col-md-1">rut</td>
+                            <td>RUT</td>
+                            <td>NOMBRE</td>
+                            <td>DIRECCIÓN</td>
+                            <td>ACCIONES</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (cliente) { %>
+                            <% for(var i=0; i < cliente.length; i++) { %>
+                                <tr>
+                                    <td>
+                                        <%= cliente[i].Rut %>
+                                    </td>
+                                    <td>
+                                        <%= cliente[i].Nombre_cliente %>
+                                    </td>
+                                    <td>
+                                        <%= cliente[i].Correo %>
+                                    </td>
+                                    <td>
+                                        <%= cliente[i].Direccion_cliente %>
+                                    </td>
+                                    <td>
+                                        <a href='/ver/<%= cliente[i].Rut %>' class="btn btn-info btn-sm" >Ver</a>
+                                        <a href="/delete/<%= cliente[i].Rut %>" class="btn btn-danger btn-sm">Borrar</a>
+                                    </td>
+                                </tr>
+                                <% } %>
+                                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- FORMULARIO PARA AÑADIR PERSONAS -->
+
+            <div class="col-md-5">
+                <div class="card-body">
+    
+                    <form action="/add" method="post" class="card-body">
+                        <h1>Formulario</h1>
+                        <div class="form-group">
+                            <input type="text" name="rut" placeholder="RUT" class="form-control" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="nombre_cliente" placeholder="NOMBRE" class="form-control" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="correo" placeholder="CORREO" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="direccion_cliente" placeholder="Dirección" class="form-control">
+                        </div>
+    
+                        <input type="submit" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <form>
+                    <h3>Buscar Cliente</h3>
+                    <input id = "Rut" name ="Rut" type="text">
+                </form>    
+                <button onclick="buscar()">Click me</button>
+            </div>
+
+    
+                        
+        </div>
+    </div>
+</body>
+</html>

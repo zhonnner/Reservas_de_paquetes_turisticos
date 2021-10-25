@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootswatch -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+     <title>pro1</title>
+</head>
+<body>
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost/Paquetes_turisticos/src/view/test2.html">Bootstrap</a>
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost/Phantom/ticketciva.com/index.html">opcion 2</a>
+            </div>
+
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- SELECT * FROM PERSONAS -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-7">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td class="col-md-1">ID</td>
+                            <td>RUT</td>
+                            <td>NOMBRE</td>
+                            <td>DIRECCIÓN</td>
+                            <td>ACCIONES</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (cliente) { %>
+                            <% for(var i=0; i < cliente.length; i++) { %>
+                                <tr>
+                                    <td>
+                                        <%= cliente[i].Rut %>
+                                    </td>
+                                    <td>
+                                        <%= cliente[i].Nombre_cliente %>
+                                    </td>
+                                    <td>
+                                        <%= cliente[i].Correo %>
+                                    </td>
+                                    <td>
+                                        <%= cliente[i].Direccion_cliente %>
+                                    </td>
+                                    <td>
+                                        <a href="/ver/<%= cliente[i].Rut %>" class="btn btn-info btn-sm" >Ver</a>
+                                        <a href="/delete/<%= cliente[i].Rut %>" class="btn btn-danger btn-sm">Borrar</a>
+                                    </td>
+                                </tr>
+                                <% } %>
+                                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- FORMULARIO PARA AÑADIR PERSONAS -->
+
+            <div class="col-md-5">
+                <div class="card-body">
+    
+                    <form action="/add" method="post" class="card-body">
+                        <h1>Formulario1</h1>
+                        <div class="form-group">
+                            <input type="text" name="Rut" placeholder="RUT" class="form-control" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Nombre_cliente" placeholder="Nombre" class="form-control" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Correo" placeholder="Correo" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Direccion_cliente" placeholder="Direccion" class="form-control">
+                        </div>
+    
+                        <input type="submit" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
