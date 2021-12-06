@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootswatch -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    <title>pro3</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <style>
+        .table{
+        outline-style: solid;
+        outline-width: 2px;}
+    </style>
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/ver/<%= paquete[0].Id_paquete %>">Paquete</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Viaje</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Compra</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                <h4 style="color: whitesmoke">Paquetes Turisticos</h4>
+            </span>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div clas="row">
+            <div class="card-deck">
+                <div class ="col-3">
+                    <h4><%= paquete[0].Nombre_paquete %></h4>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td scope="col">ingrese una fecha en especifico o una fecha que sera la fecha inicial hacia adelante</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align: center;">
+                        <button class="btn-info btn-sm" type="submit" form="ax">Siguiente: Pago</button>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <h4>Fecha</h4>
+                    <form action="/buscar3" method="post" class="card-body">
+                        <div class="form-group">
+                            <input type="hidden" name="Id_paquete" value="<%= paquete[0].Id_paquete %>">
+                            <input type="text" name="Fecha_viaje" placeholder="Ej: 2021-02-22" class="form-control">
+                        </div>
+                        <input type="submit" class="btn btn-info btn-sm">
+                    </form>
+                    <h5>esta fecha hacia adelante</h5>
+                    <form action="/buscar4" method="post" class="card-body">
+                        <div class="form-group">
+                            <input type="hidden" name="Id_paquete" value="<%= paquete[0].Id_paquete %>">
+                            <input type="text" name="Fecha_viaje" placeholder="Ej: 2021-02-22" class="form-control">
+                        </div>
+                        <input type="submit" class="btn btn-info btn-sm">
+                    </form>
+                </div>
+                <div class="col-6">
+                    <h4 style="color: white">A</h4>
+                    <table class="table table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Hora</th>
+                                <th scope="col">Origen</th>
+                                <th scope="col">Destino</th>
+                                <th scope="col">añadir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form id="ax" action="/2" method="post">
+                                <% if (data) { %>
+                                    <% for(var i= 0; i < data.length; i++) { %>
+                                        <tr>
+                                            <th><%= data[i].Id_viaje%></th>
+                                            <td><%= data[i].Fecha_viaje%></td>
+                                            <td><%= data[i].Hora_viaje%></td>
+                                            <td><%= data[i].Origen%></td>
+                                            <td><%= data[i].Destino%></td>
+    
+                                            <td><input name="Id_viaje" class="form-check-input" type="checkbox" value="<%= data[i].Id_viaje%>" id="flexCheckDefault"></td>
+                                        </tr>
+                                    <% } %>
+                                <% } %>
+                                <input type="hidden" name="Id_paquete" value="<%= paquete[0].Id_paquete%>">
+                            </form>                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>    
+    </div>
+    </div>
+    
+</body>
+</html>

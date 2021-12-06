@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootswatch -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    <title>pro3</title>
+    <style>
+        .table{
+        outline-style: solid;
+        outline-width: 2px;}
+    </style>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>   
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Paquete</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Viaje</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Compra</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                <h4 style="color: whitesmoke">Paquetes Turisticos</h4>
+            </span>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div clas="row">
+            <div class="card-deck">
+                <div class ="col-4">
+                    <h4><%= data.Nombre_paquete %></h4>
+                    <div class="card" style="text-align: center;">
+                        <svg class="bd-placeholder-img card-img-top" width="200" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
+                    </div>
+                    <div style="text-align: center;">
+                        <a href="/ver/<%= data.Id_paquete %>" class="btn btn-info btn-sm">Anterior</a>
+                        <a href="/ver/<%= data.Id_paquete %>"class='btn btn-info btn-sm disabled' >Hospedaje</a>
+                        <a href="/ver/<%= data.Id_paquete %>" class="btn btn-info btn-sm">Siguiente</a>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h4>Descripcion</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center" scope="col">
+                                    Lorem ipsum dolor sit amet consectetur adipiscing elit, posuere sociosqu dictumst torquent duis mus ultrices, et a justo orci tincidunt hendrerit. Ultricies taciti vivamus quisque urna neque, magnis viverra nisl phasellus integer, sem dui dictumst quis. Fringilla tempor ac morbi enim faucibus felis magnis laoreet pharetra, non metus conubia nunc fermentum neque porta ridiculus, suspendisse ut interdum nisi blandit pulvinar id vitae. Justo dignissim semper porta condimentum curae vehicula, sapien interdum dictum risus primis molestie mollis, taciti orci ridiculus dui montes.
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="col-2">
+                    <h4 style="color: white">A</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    Borrado exitosamente Borrado exitosamente Borrado exitosamente Borrado
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div style="text-align: center;">
+                        <a href="/ver2/<%= data.Id_paquete %>" class="btn btn-info btn-sm">Siguiente</a>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <!--
+    <div class="row">
+        <div class="col-md-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre Paquete</th>
+                            <th scope="col">Pais Destino</th>
+                            <th scope="col">Fecha Llegada</th>
+                            <th scope="col">Fecha Salida</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr class="table-info">
+                            <th scope="row"><%= data.Nombre_paquete%></th>
+                            <td><%= data.Pais_destino%></td>
+                            <td><%= data.Fecha_llegada%></td>
+                            <td><%= data.Fecha_salida%></td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>-->
+    </div>
+    
+</body>
+</html>

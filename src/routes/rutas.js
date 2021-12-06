@@ -1,63 +1,142 @@
 const express = require('express');
 const router = express.Router();
 const conn = require('../database');
+let date_ob = new Date();
+
+let date = ("0" + date_ob.getDate()).slice(-2);
+let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+let year = date_ob.getFullYear();
+let hours = date_ob.getHours();
+let minutes = date_ob.getMinutes();
+console.log(year + "-" + month + "-" + date);
+console.log(hours + ":" + minutes);
 
 
 router.get('/', function(req, res) {
-    res.render('test2.ejs');
-  });
-router.get('/home', (req, res) => {
+    res.render('home.ejs');
+});
 
-    conn.query("select * from cliente", (err, result) => {
-        if(!err) {
-          res.render('home.ejs',{
-            cliente: result
-          });
-        } else {
-          console.log(err);
-        }
+router.post('/2', (req, res) => {
+    const { Id_viaje, Id_paquete} = req.body;
+    conn.query('SELECT * FROM compra', (err, result) => {
+        if(err) throw err;
+        conn.query('SELECT Id_estadia FROM paquete_estadia where Id_paquete = ?', [Id_paquete], (err2, result2) => {
+            if(err2) throw err2;
+            res.render('pago.ejs',{ Id_viaje, result, result2, Id_paquete });
+        });
     });
 });
 
+router.get('/3', (req, res) => {
+    res.render('comprado.ejs')
+});
 
 /* Mostrar solamente una persona */ 
 router.get('/ver/:id', (req, res) => {
     const { id } = req.params;  
     conn.query('SELECT * FROM paquete where id_paquete = ?',[id], (err, result) => {
-        if(!err) {
-          res.render('cliente.ejs',{
-            data: result[0]
-          });
-        } else {
-          console.log(err);
-        }
+        if(err) throw err;
+        res.render('paquete.ejs',{ data: result[0] });
     });
-  });
-  
-  /* ELIMINAR FILA DE TABLA PERSONAS */
-  router.get('/delete/:id', (req, res) => {
-    const { id } = req.params;
-    conn.query('DELETE FROM cliente WHERE Rut = ?', [id]);
-    res.redirect('/');
   });
 
-  /* Añadir fila a la tabla persona */
-router.post('/add',(req, res) => {
-    //console.log(req.body);
-    const {Rut, Nombre_cliente, Correo, Direccion_cliente} = req.body;
-    conn.query('INSERT into cliente SET ? ',{
-        Rut: Rut,
-        Nombre_cliente: Nombre_cliente,
-        Correo: Correo,
-        direccion_cliente: Direccion_cliente
-    }, (err, result) => {
-        if(!err) {
-            res.redirect('/');
-        } else {
-            console.log(err);
-        }
+router.get('/ver2/:id', (req, res) => {
+    const { id } = req.params;  
+    conn.query('SELECT * FROM paquete where id_paquete = ?',[id], (err, result) => {
+        if(err) throw err;
+        res.render('viajes.ejs',{ data: result[0] });
     });
-  });
+});
+
+router.post('/compra',(req, res) => {
+    const {Numero_tarjeta, Vencimiento, Rut, Email, Banco, Nombre, Direccion, Id_viaje, Id_compra, Pago, Id_paquete, Id_estadia} = req.body;
+    conn.query('insert into cliente set ?', {
+        Nombre_cliente: Nombre,
+        Correo: Email,
+        Direccion_cliente: Direccion,
+        Rut: Rut,
+        Admin: 0,
+        Contraseña: null
+    }, (err, result1) =>{
+        if(err) throw err;
+        conn.query('insert into TarjetaCred set ?', {
+            Numero_tarjeta: Numero_tarjeta,
+            Fecha_vencimiento: Vencimiento,
+            Rut: Rut,
+            Banco: Banco
+        }, (err2, result1) =>{
+            if(err2) throw err2;
+            conn.query('insert into compra set ?', {
+                Id_compra: Id_compra,
+                Fecha_compra: year + "-" + month + "-" + date,
+                Rut: Rut,
+                Hora_compra: hours + ":" + minutes,
+                Estado: 1
+            }, (err3, result1) =>{
+                if(err3) throw err3;
+                conn.query('insert into boleta set ?', {
+                    Id_compra: Id_compra,
+                    Id_boleta: Id_compra,
+                    Descuento: parseInt(Id_paquete * 10),
+                    Precio_viaje: Id_viaje.length * parseInt(Id_paquete * 10) *1000,
+                    Precio_estadia: Id_estadia.length * 25000,
+                    Valor_total:( Id_viaje.length * parseInt(Id_paquete * 10) *1000 + Id_estadia.length * parseInt(Id_paquete * 10)* 1000 * Id_estadia.length * 25000),
+                    Metodo_pago: Pago
+                }, (err4, result1) =>{
+                    if(err4) throw err4
+                    for (let index = 0; index < Id_viaje.length; index++) {
+                    const element = Id_viaje[index];
+                    if(!isNaN(element)){
+                        conn.query('insert into compra_viaje set ?',{
+                            Id_compra: Id_compra,
+                            Id_viaje: element
+                        },
+                        (err5, result) =>{
+                            if(err5) throw err5;
+                        });
+                    }
+                }
+                    for (let index = 0; index < Id_compra.length; index++) {
+                        const element = Id_paquete[index];
+                        if(!isNaN(element)){
+                            conn.query('insert into paquete_compra set ?',{
+                                Id_compra: Id_compra,
+                                Id_paquete: element
+                            },
+                            (err, result) =>{
+                                if(err) throw err;
+                            });
+                        }
+                    }
+                    res.redirect('/3');
+                });
+            });
+        });    
+    });
+});
+
+router.post('/buscar3', (req, res) => {
+    const {Fecha_viaje, Id_paquete} = req.body;
+    conn.query('SELECT * FROM viaje where Fecha_viaje = ?',[Fecha_viaje], (err, result) => {
+        if(err) throw err;
+        conn.query('select * from paquete where Id_paquete = ?', [Id_paquete], (err2, result2) => {
+            if(err2) throw err2;
+            res.render('viajes2.ejs',{ data: result, paquete: result2 });
+        });
+    });
+});
+
+router.post('/buscar4', (req, res) => {
+    const {Fecha_viaje, Id_paquete} = req.body;
+    conn.query('SELECT * FROM viaje where Fecha_viaje >= ?',[Fecha_viaje], (err, result) => {
+        if(err) throw err;
+        conn.query('select * from paquete where Id_paquete = ?', [Id_paquete], (err2, result2) => {
+            if(err2) throw err2;
+            res.render('viajes2.ejs',{ data: result, paquete: result2 });
+        });
+    });
+});
+
 //π Rut, Nombre_cliente, Correo, Direccion_cliente (Cliente)
 /*con.query("select * from cliente", (err,res,campos) =>{
     console.log(res);
@@ -109,7 +188,7 @@ router.post('/add',(req, res) => {
     console.log(res);
 });*/
 //numeros de clientes que han comprado cada paquete
-/*conn.query('select id_paquete, count(rut) from compra natural join paquete group by id_paquete;',  (err,res,campos) =>{
+/*conn.query('select id_paquete as paquete, count(rut)  as vendido from compra natural join paquete group by id_paquete;',  (err,res,campos) =>{
     console.log(res);
 });*/
 //numero de clientes en cada viaje
@@ -129,7 +208,7 @@ router.post('/add',(req, res) => {
     console.log(res);
 });*/
 //identificar estadia de una compra x
-/*onn.query('select id_estadia from paquete_estadia WHERE id_paquete IN ( SELECT id_paquete FROM compra NATURAL JOIN paquete where id_compra = 1);',  (err,res,campos) =>{
+/*conn.query('select id_estadia from paquete_estadia WHERE id_paquete IN ( SELECT id_paquete FROM compra NATURAL JOIN paquete where id_compra = 1);',  (err,res,campos) =>{
     console.log(res);
 });*/
 //mostrar los datos de un cliente que va a argentina

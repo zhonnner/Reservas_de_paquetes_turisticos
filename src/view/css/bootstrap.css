@@ -2103,6 +2103,11 @@ progress {
   border-color: #dfe0e1;
 }
 
+.thead-dark {
+  color: #fff;
+  border-color: #373b3e;
+}
+
 .table-dark {
   --bs-table-bg: #212529;
   --bs-table-striped-bg: #2c3034;

@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"}],"uuid":"a9f19caf57d341cbbe37d3e39cac65b5","collectionName":"paquetes","type":"collection"}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootswatch -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    <title>pro3</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <style>
+        .table{
+        outline-style: solid;
+        outline-width: 2px;}
+    </style>
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/ver/<%= Id_paquete %>">Paquete</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/ver2/<%= Id_paquete %>">Viaje</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Compra</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                <h4 style="color: whitesmoke">Paquetes Turisticos</h4>
+            </span>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <form class="row g-3" action="/compra" method="post">
+            <div class="col-sm-3">
+                <div class="row">
+                    <h4>Elija su metodo de pago</h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Pago" value="credito" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            credito
+                        </label>
+                      </div>                  
+                </div>
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Pago" value="debito">
+                        <label class="form-check-label" for="exampleRadios2">
+                            debito
+                    </label>
+                    </div>
+                </div>
+                <h4 style="float: right;"><br><br>Ingresa los datos</h4>
+            </div>
+            <div class="col-sm-3">
+                <div class="row">
+                    <h4 style="color: white;">Elija su metodo de pago</h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="hidden">
+                        <label class="form-check-label" for="exampleRadios1" style="color: white;">
+                            Default radio
+                        </label>
+                      </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="form-check">
+                        <input class="hidden form-check-input" type="hidden">
+                        <label class="form-check-label" for="exampleRadios2" style="color: white;">
+                            Second default radio
+                    </label>
+                    </div>
+                </div>
+                <h4><br><br>de tu tarjeta</h4>
+            </div>
+            <div class="col-sm-3">
+                <div class="row">
+                    <label for="inputEmail4" class="col-sm-3 col-form-label col-form-label-sm" style="color: white;">Email</label>
+                </div>
+            </div>
+            <div class="card-body col-sm-3">
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td class="text-center">Borrado exitosamente</td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td class="text-center">Borrado exitosamente</td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="inputEmail4" class="form-label">N° de tarjeta</label>
+                <input type="text" name="Numero_tarjeta" placeholder="ej: 12345678" class="form-control" required>
+            </div>
+            <div class="col-md-4">
+                <label for="inputPassword4" class="form-label">Rut</label>
+                <input type="text" name="Rut" placeholder="ej: 12.333.222-1" class="form-control" required>
+            </div>
+            <div class="col-md-4" style="text-align: center;">
+                <button class="btn btn-info" type="submit">Comprar</button>
+            </div>
+            <div class="col-sm-2">
+                <div class="row">
+                    <h5><br><br>Elija su banco</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Banco" value="Santander" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            Santander
+                        </label>
+                      </div>
+                </div>
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Banco" value="Estado">
+                        <label class="form-check-label" for="exampleRadios2">
+                            Estado
+                    </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label for="inputEmail4" class="form-label"><br><br>Vencimiento</label>
+                <input type="text" name="Vencimiento" placeholder="ej: mm/aa" class="form-control" required>
+            </div>
+            <div class="col-md-4">
+                <label for="inputPassword4" class="form-label"><br><br>Email</label>
+                <input type="text" name="Email" placeholder="ej: hola1@gmail.com" class="form-control" required>
+                <input type="hidden" name="Nuevo" value="<%= result.length + 1 %>">
+            </div>
+            <div class="col-md-4">
+                <input type="hidden" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <label for="inputEmail4" class="form-label">Nombre</label>
+                <input type="text" name="Nombre" placeholder="ej: Carla Perez" class="form-control" required>
+            </div>
+            <div class="col-md-4">
+                <label for="inputPassword4" class="form-label">Direccion</label>
+                <input type="text" name="Direccion" placeholder="ej: calle 1" class="form-control" required>
+            </div>
+            <div class="col-md-4" style="text-align: center;">
+                <input type="hidden" name="Id_viaje" value="<%= Id_viaje %>">
+                <input type="hidden" name="Id_compra" value="<%= result.length+1 %>">
+                <input type="hidden" name="Id_estadia" value="<%= result2.length %>">
+                <input type="hidden" name="Id_paquete" value="<%= Id_paquete %>">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
