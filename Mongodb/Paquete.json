@@ -1,0 +1,488 @@
+[{
+  "_id": {
+    "$oid": "61a45616da3eab0d02bc7e4a"
+  },
+  "Id_paquete": 2,
+  "Nombre_paquete": "paquete 2",
+  "Pais_destino": "Alemania",
+  "Tiempo_estadia_dias": 4,
+  "Tiempo_estadia_noches": 4,
+  "Fecha_llegada": {
+    "$date": "2021-09-22T00:00:00Z"
+  },
+  "Fecha_salida": {
+    "$date": "2021-09-26T00:00:00Z"
+  },
+  "Estadia": [
+    {
+      "Id_estadia": 1,
+      "Direccion_estadia": "Calle 1 Berlin",
+      "Telefono_estadia": 11111111,
+      "Capacidad_estadia": 21,
+      "Nombre_estadia": "Hotel 1"
+    }
+  ],
+  "Compra": [
+    {
+      "Id_compra": 1,
+      "Estado": true,
+      "Fecha_compra": {
+        "$date": "2021-09-18T00:00:00Z"
+      },
+      "Hora_compra": "11:00",
+      "Boleta": {
+        "Id_boleta": 1,
+        "Descuento": 15,
+        "Precio_viaje": 60000,
+        "Precio_estadia": 75000,
+        "Valor_total": 89250,
+        "Metodo_pago": "credito"
+      },
+      "Viaje_comprados": [
+        {
+          "Id_viaje": 1,
+          "Fecha_viaje": {
+            "$date": "2021-09-22T00:00:00Z"
+          },
+          "Hora_viaje": "20:00",
+          "Origen": "Santiago",
+          "Destino": "Berlin",
+          "Capacidad_viaje": 40
+        },
+        {
+          "Id_viaje": 5,
+          "Fecha_viaje": {
+            "$date": "2021-09-26T00:00:00Z"
+          },
+          "Hora_viaje": "21:00",
+          "Origen": "Berlin",
+          "Destino": "Santiago",
+          "Capacidad_viaje": 30
+        }
+      ],
+      "Cliente": {
+        "Rut": "11.111.111-1",
+        "Nombre_cliente": "Melanie Perez",
+        "Correo": "hola1@gmail.com",
+        "Direccion_cliente": "calle 1",
+        "Contraseña": "NULL",
+        "Admin": false,
+        "TarjetaCred": [
+          {
+            "Numero_tarjeta": 12345678,
+            "Fecha_vencimiento": "02/22",
+            "Banco": "Banco Estado"
+          }
+        ]
+      }
+    },
+    {
+      "Id_compra": 3,
+      "Estado": true,
+      "Fecha_compra": {
+        "$date": "2021-09-01T00:00:00Z"
+      },
+      "Hora_compra": "11:43",
+      "Boleta": {
+        "Id_boleta": 3,
+        "Descuento": 15,
+        "Precio_viaje": 60000,
+        "Precio_estadia": 75000,
+        "Valor_total": 89250,
+        "Metodo_pago": "debito"
+      },
+      "Viaje_comprados": [
+        {
+          "Id_viaje": 1,
+          "Fecha_viaje": {
+            "$date": "2021-09-22T00:00:00Z"
+          },
+          "Hora_viaje": "20:00",
+          "Origen": "Santiago",
+          "Destino": "Berlin",
+          "Capacidad_viaje": 40
+        },
+        {
+          "Id_viaje": 5,
+          "Fecha_viaje": {
+            "$date": "2021-09-26T00:00:00Z"
+          },
+          "Hora_viaje": "21:00",
+          "Origen": "Berlin",
+          "Destino": "Santiago",
+          "Capacidad_viaje": 30
+        }
+      ],
+      "Cliente": {
+        "Rut": "11.111.112-2",
+        "Nombre_cliente": "Marcela Perez",
+        "Correo": "hola2@gmail.com",
+        "Direccion_cliente": "calle 2",
+        "Contraseña": "2222",
+        "Admin": true,
+        "TarjetaCred": {
+          "Numero_tarjeta": 11111111,
+          "Fecha_vencimiento": "01/11",
+          "Banco": "Banco Santander"
+        }
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61aaa470b34a0407ad7a2d10"
+  },
+  "Id_paquete": 3,
+  "Nombre_paquete": "paquete 3",
+  "Pais_destino": "Argentina",
+  "Tiempo_estadia_dias": 3,
+  "Tiempo_estadia_noches": 3,
+  "Fecha_llegada": {
+    "$date": "2021-09-23T00:00:00Z"
+  },
+  "Fecha_salida": {
+    "$date": "2021-09-26T00:00:00Z"
+  },
+  "Estadia": [
+    {
+      "Id_estadia": 4,
+      "Direccion_estadia": "Calle 2 Buenos Aires",
+      "Telefono_estadia": 11111114,
+      "Capacidad_estadia": 11,
+      "Nombre_estadia": "Hotel 4"
+    }
+  ],
+  "Compra": [
+    {
+      "Id_compra": 2,
+      "Estado": true,
+      "Fecha_compra": {
+        "$date": "2021-09-19T00:00:00Z"
+      },
+      "Hora_compra": "13:00",
+      "Boleta": {
+        "Id_boleta": 2,
+        "Descuento": 10,
+        "Precio_viaje": 30000,
+        "Precio_estadia": 60000,
+        "Valor_total": 81000,
+        "Metodo_pago": "credito"
+      },
+      "Viaje_comprados": [
+        {
+          "Id_viaje": 3,
+          "Fecha_viaje": {
+            "$date": "2021-09-23T00:00:00Z"
+          },
+          "Hora_viaje": "20:00",
+          "Origen": "Santiago",
+          "Destino": "Buenos Aires",
+          "Capacidad_viaje": 30
+        },
+        {
+          "Id_viaje": 6,
+          "Fecha_viaje": {
+            "$date": "2021-09-26T00:00:00Z"
+          },
+          "Hora_viaje": "20:00",
+          "Origen": "Buenos Aires",
+          "Destino": "Santiago",
+          "Capacidad_viaje": 24
+        }
+      ],
+      "Cliente": {
+        "Rut": "11.111.113-3",
+        "Nombre_cliente": "Brenda Araya",
+        "Correo": "hola3@gmail.com",
+        "Direccion_cliente": "calle 3",
+        "Contraseña": "22",
+        "Admin": false,
+        "TarjetaCred": [
+          {
+            "Numero_tarjeta": 11223344,
+            "Fecha_vencimiento": "03/03",
+            "Banco": "Banco Estado"
+          }
+        ]
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61aaa82eb34a0407ad7a2d11"
+  },
+  "Id_paquete": 4,
+  "Nombre_paquete": "paquete 4",
+  "Pais_destino": "Alemania",
+  "Tiempo_estadia_dias": 4,
+  "Tiempo_estadia_noches": 3,
+  "Fecha_llegada": {
+    "$date": "2021-09-23T00:00:00Z"
+  },
+  "Fecha_salida": {
+    "$date": "2021-09-26T00:00:00Z"
+  },
+  "Estadia": [
+    {
+      "Id_estadia": 2,
+      "Direccion_estadia": "Calle 2 Berlin",
+      "Telefono_estadia": 11111112,
+      "Capacidad_estadia": 11,
+      "Nombre_estadia": "Hotel 2"
+    }
+  ],
+  "Compra": [
+    {
+      "Id_compra": 5,
+      "Estado": true,
+      "Fecha_compra": {
+        "$date": "2021-09-20T00:00:00Z"
+      },
+      "Hora_compra": "13:00",
+      "Boleta": {
+        "Id_boleta": 5,
+        "Descuento": 5,
+        "Precio_viaje": 10,
+        "Precio_estadia": 20,
+        "Valor_total": 30,
+        "Metodo_pago": "credito"
+      },
+      "Viaje_comprados": [
+        {
+          "Id_viaje": 1,
+          "Fecha_viaje": {
+            "$date": "2021-09-22T00:00:00Z"
+          },
+          "Hora_viaje": "20:00",
+          "Origen": "Santiago",
+          "Destino": "Berlin",
+          "Capacidad_viaje": 40
+        },
+        {
+          "Id_viaje": 8,
+          "Fecha_viaje": {
+            "$date": "2021-09-26T00:00:00Z"
+          },
+          "Hora_viaje": "19:00",
+          "Origen": "Berlin",
+          "Destino": "Buenos Aires",
+          "Capacidad_viaje": 30
+        },
+        {
+          "Id_viaje": 9,
+          "Fecha_viaje": {
+            "$date": "2021-09-30T00:00:00Z"
+          },
+          "Hora_viaje": "20:00",
+          "Origen": "Buenos Aires",
+          "Destino": "Santiago",
+          "Capacidad_viaje": 25
+        }
+      ],
+      "Cliente": {
+        "Rut": "11.111.114-4",
+        "Nombre_cliente": "Ashly Contreras",
+        "Correo": "hola4@gmail.com",
+        "Direccion_cliente": "calle 4",
+        "Contraseña": "NULL",
+        "Admin": false,
+        "TarjetaCred": [
+          {
+            "Numero_tarjeta": 33445566,
+            "Fecha_vencimiento": "05/05",
+            "Banco": "Banco Estado"
+          },
+          {
+            "Numero_tarjeta": 22334455,
+            "Fecha_vencimiento": "04/04",
+            "Banco": "Banco Santander"
+          }
+        ]
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61a4454dda3eab0d02bc7e47"
+  },
+  "Id_paquete": 1,
+  "Nombre_paquete": "paquete 1",
+  "Pais_destino": "Argentina",
+  "Tiempo_estadia_dias": 4,
+  "Tiempo_estadia_noches": 4,
+  "Fecha_llegada": {
+    "$date": "2021-09-22T00:00:00Z"
+  },
+  "Fecha_salida": {
+    "$date": "2021-09-26T00:00:00Z"
+  },
+  "Estadia": [
+    {
+      "Id_estadia": 3,
+      "Direccion_estadia": "Calle 1 Buenos Aires",
+      "Telefono_estadia": 11111113,
+      "Capacidad_estadia": 21,
+      "Nombre_estadia": "Hotel 3"
+    }
+  ],
+  "Compra": [
+    {
+      "Id_compra": 4,
+      "Estado": false,
+      "Fecha_compra": "2021-09-20",
+      "Hora_compra": "12:31",
+      "Boleta": {
+        "Id_boleta": 4,
+        "Descuento": 15,
+        "Precio_viaje": 30000,
+        "Precio_estadia": 80000,
+        "Valor_total": 93500,
+        "Metodo_pago": "credito"
+      },
+      "Viaje_comprados": [
+        {
+          "Id_viaje": 6,
+          "Fecha_viaje": {
+            "$date": "2021-09-26T00:00:00Z"
+          },
+          "Hora_viaje": "20:00",
+          "Origen": "Buenos Aires",
+          "Destino": "Santiago",
+          "Capacidad_viaje": 24
+        },
+        {
+          "Id_viaje": 7,
+          "Fecha_viaje": {
+            "$date": "2021-09-22T00:00:00Z"
+          },
+          "Hora_viaje": "20:00",
+          "Origen": "Santiago",
+          "Destino": "Buenos Aires",
+          "Capacidad_viaje": 32
+        }
+      ],
+      "Cliente": {
+        "Rut": "11.111.114-4",
+        "Nombre_cliente": "Ashly Contreras",
+        "Correo": "hola4@gmail.com",
+        "Direccion_cliente": "calle 4",
+        "Contraseña": "NULL",
+        "Admin": false,
+        "TarjetaCred": [
+          {
+            "Numero_tarjeta": 22334455,
+            "Fecha_vencimiento": "04/04",
+            "Banco": "Banco Santander"
+          },
+          {
+            "Numero_tarjeta": 33445566,
+            "Rut": "11.111.114-4",
+            "Fecha_vencimiento": "05/05",
+            "Banco": "Banco Estado"
+          }
+        ]
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61aaade1b34a0407ad7a2d12"
+  },
+  "Id_paquete": 5,
+  "Nombre_paquete": "paquete 5",
+  "Pais_destino": "Argentina",
+  "Tiempo_estadia_dias": 3,
+  "Tiempo_estadia_noches": 3,
+  "Fecha_llegada": {
+    "$date": "2021-09-27T00:00:00Z"
+  },
+  "Fecha_salida": {
+    "$date": "2021-09-30T00:00:00Z"
+  },
+  "Estadia": [
+    {
+      "Id_estadia": 3,
+      "Direccion_estadia": "Calle 1 Buenos Aires",
+      "Telefono_estadia": 11111113,
+      "Capacidad_estadia": 21,
+      "Nombre_estadia": "Hotel 3"
+    },
+    {
+      "Id_estadia": 4,
+      "Direccion_estadia": "Calle 2 Buenos Aires",
+      "Telefono_estadia": 11111114,
+      "Capacidad_estadia": 11,
+      "Nombre_estadia": "Hotel 4"
+    }
+  ],
+  "Compra": [
+    {
+      "Id_compra": 5,
+      "Estado": true,
+      "Fecha_compra": {
+        "$date": "2021-09-20T00:00:00Z"
+      },
+      "Hora_compra": "13:00",
+      "Boleta": {
+        "Id_boleta": 5,
+        "Descuento": 5,
+        "Precio_viaje": 10,
+        "Precio_estadia": 20,
+        "Valor_total": 30,
+        "Metodo_pago": "credito"
+      },
+      "Viaje_comprados": [
+        {
+          "Id_viaje": 1,
+          "Fecha_viaje": {
+            "$date": "2021-09-22T00:00:00Z"
+          },
+          "Hora_viaje": "20:00",
+          "Origen": "Santiago",
+          "Destino": "Berlin",
+          "Capacidad_viaje": 40
+        },
+        {
+          "Id_viaje": 8,
+          "Fecha_viaje": {
+            "$date": "2021-09-26T00:00:00Z"
+          },
+          "Hora_viaje": "19:00",
+          "Origen": "Berlin",
+          "Destino": "Buenos Aires",
+          "Capacidad_viaje": 30
+        },
+        {
+          "Id_viaje": 9,
+          "Fecha_viaje": {
+            "$date": "2021-09-30T00:00:00Z"
+          },
+          "Hora_viaje": "20:00",
+          "Origen": "Buenos Aires",
+          "Destino": "Santiago",
+          "Capacidad_viaje": 25
+        }
+      ],
+      "Cliente": {
+        "Rut": "11.111.114-4",
+        "Nombre_cliente": "Ashly Contreras",
+        "Correo": "hola4@gmail.com",
+        "Direccion_cliente": "calle 4",
+        "Contraseña": "NULL",
+        "Admin": false,
+        "TarjetaCred": [
+          {
+            "Numero_tarjeta": 33445566,
+            "Fecha_vencimiento": "05/05",
+            "Banco": "Banco Estado"
+          },
+          {
+            "Numero_tarjeta": 22334455,
+            "Fecha_vencimiento": "04/04",
+            "Banco": "Banco Santander"
+          }
+        ]
+      }
+    }
+  ]
+}]

@@ -1,0 +1,109 @@
+[{
+  "_id": {
+    "$oid": "61aabbe8b34a0407ad7a2d1f"
+  },
+  "Id_viaje": 1,
+  "Fecha_viaje": {
+    "$date": "2021-09-22T00:00:00Z"
+  },
+  "Hora_viaje": "20:00",
+  "Origen": "Santiago",
+  "Destino": "Berlin",
+  "Capacidad": 40
+},{
+  "_id": {
+    "$oid": "61aabc88b34a0407ad7a2d20"
+  },
+  "Id_viaje": 2,
+  "Fecha_viaje": {
+    "$date": "2021-09-22T00:00:00Z"
+  },
+  "Hora_viaje": "22:00",
+  "Origen": "Santiago",
+  "Destino": "Berlin",
+  "Capacidad": 30
+},{
+  "_id": {
+    "$oid": "61aabc9cb34a0407ad7a2d21"
+  },
+  "Id_viaje": 3,
+  "Fecha_viaje": {
+    "$date": "2021-09-23T00:00:00Z"
+  },
+  "Hora_viaje": "20:00",
+  "Origen": "Santiago",
+  "Destino": "Buenos Aires",
+  "Capacidad": 30
+},{
+  "_id": {
+    "$oid": "61aabcbeb34a0407ad7a2d22"
+  },
+  "Id_viaje": 4,
+  "Fecha_viaje": {
+    "$date": "2021-09-23T00:00:00Z"
+  },
+  "Hora_viaje": "22:00",
+  "Origen": "Valparaiso",
+  "Destino": "Berlin",
+  "Capacidad": 24
+},{
+  "_id": {
+    "$oid": "61aabce5b34a0407ad7a2d23"
+  },
+  "Id_viaje": 5,
+  "Fecha_viaje": {
+    "$date": "2021-09-26T00:00:00Z"
+  },
+  "Hora_viaje": "21:00",
+  "Origen": "Berlin",
+  "Destino": "Santiago",
+  "Capacidad": 30
+},{
+  "_id": {
+    "$oid": "61aabd15b34a0407ad7a2d24"
+  },
+  "Id_viaje": 6,
+  "Fecha_viaje": {
+    "$date": "2021-09-26T00:00:00Z"
+  },
+  "Hora_viaje": "20:00",
+  "Origen": "Buenos Aires",
+  "Destino": "Santiago",
+  "Capacidad": 20
+},{
+  "_id": {
+    "$oid": "61aabdceb34a0407ad7a2d25"
+  },
+  "Id_viaje": 7,
+  "Fecha_viaje": {
+    "$date": "2021-09-22T00:00:00Z"
+  },
+  "Hora_viaje": "20:00",
+  "Origen": "Santiago",
+  "Destino": "Buenos Aires",
+  "Capacidad": 32
+},{
+  "_id": {
+    "$oid": "61aabdf8b34a0407ad7a2d26"
+  },
+  "Id_viaje": 8,
+  "Fecha_viaje": {
+    "$date": "2021-09-26T00:00:00Z"
+  },
+  "Hora_viaje": "19:00",
+  "Origen": "Berlin",
+  "Destino": "Buenos Aires",
+  "Capacidad": 30
+},{
+  "_id": {
+    "$oid": "61aabe18b34a0407ad7a2d27"
+  },
+  "Id_viaje": 9,
+  "Fecha_viaje": {
+    "$date": "2021-09-30T00:00:00Z"
+  },
+  "Hora_viaje": "20:00",
+  "Origen": "Buenos Aires",
+  "Destino": "Santiago",
+  "Capacidad": 25
+}]
